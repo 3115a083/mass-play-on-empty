@@ -1,0 +1,25 @@
+name: Test Music Assistant Plugin
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Compile Python
+        run: python -m compileall -q provider tests
+      - name: Run behavioral tests
+        run: python -m unittest discover -s tests -v
+      - name: Check provider manifest
+        run: python -c 'import json; x=json.load(open("provider/play_on_empty/manifest.json")); assert x["type"]=="plugin" and x["domain"]=="play_on_empty" and x["requirements"]==[]'
