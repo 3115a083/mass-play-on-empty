@@ -52,7 +52,9 @@ def safe_media_uri(value: Any) -> str:
     """Reject blank or multiline options; MA resolves the URI itself."""
     if not isinstance(value, str):
         return ""
+    if any(character in value for character in "\r\n\x00"):
+        return ""
     uri = value.strip()
-    if not uri or any(character in uri for character in "\r\n\x00") or len(uri) > 2048:
+    if not uri or len(uri) > 2048:
         return ""
     return uri
