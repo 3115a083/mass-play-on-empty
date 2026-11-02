@@ -1,0 +1,23 @@
+{
+  "config_entries": {
+    "players": {
+      "label": "Sonos S2 speakers",
+      "description": "Choose speakers whose physical Play button should start fallback media when nothing is loaded. Requires the native Music Assistant Sonos S2 provider."
+    },
+    "fallback_uri": {
+      "label": "Default fallback media URI",
+      "description": "Music Assistant radio station or playlist URI. Used for all selected speakers unless a per-speaker override is configured. Leave blank to disable playback."
+    },
+    "cooldown_seconds": {
+      "label": "Repeat-event cooldown (seconds)",
+      "description": "Minimum time between handled empty-content errors per speaker. Prevents repeated Play presses and device event bursts from launching multiple times."
+    },
+    "log_skips": {
+      "label": "Log ignored attempts",
+      "description": "Write info-level diagnostics for failed safety checks and missing media configuration. No fallback is started for an unsafe state."
+    }
+  },
+  "manifest": {
+    "description": "Start chosen Music Assistant radio or playlist media when selected Sonos S2 hardware reports no content on Play and its MA queue is empty."
+  }
+}
