@@ -1,0 +1,15 @@
+{
+  "type": "plugin",
+  "domain": "play_on_empty",
+  "stage": "beta",
+  "name": "Play on Empty",
+  "description": "Start selected fallback media when a Sonos S2 speaker reports an empty-content Play press while its Music Assistant queue is empty.",
+  "codeowners": [
+    "@3115a083"
+  ],
+  "documentation": "https://github.com/3115a083/mass-play-on-empty",
+  "multi_instance": false,
+  "builtin": false,
+  "requirements": [],
+  "icon": "md:play-circle-outline"
+}
